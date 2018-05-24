@@ -168,7 +168,9 @@ endfunction
 " common groups ================================================================
 " (see `:h w18`)
 
-call s:h("Normal",        {"bg": s:bg, "fg": s:norm})
+" OG Background
+" call s:h("Normal",        {"bg": s:bg, "fg": s:norm})
+call s:h("Normal",       {"bg": { "gui": "#F2F2F2", "cterm": "255" }, "fg": s:norm})
 call s:h("Cursor",        {"bg": s:blue, "fg": s:norm })
 call s:h("Comment",       {"fg": s:medium_gray, "gui": "italic", "cterm": "italic"})
 
@@ -224,7 +226,7 @@ call s:h("IncSearch",     {"bg": s:yellow, "fg": s:light_black})
 call s:h("Search",        {"bg": s:bg_subtle})
 call s:h("MoreMsg",       {"fg": s:medium_gray, "gui": "bold", "cterm": "bold"})
 hi! link ModeMsg MoreMsg
-call s:h("LineNr",        {"fg": s:bg_subtle})
+call s:h("LineNr",        {"fg": s:medium_gray})
 call s:h("CursorLineNr",  {"fg": s:blue, "bg": s:bg_very_subtle})
 call s:h("Question",      {"fg": s:red})
 call s:h("StatusLine",    {"bg": s:bg_very_subtle})
@@ -367,6 +369,18 @@ call s:h("mmdTableCaption",             {"fg": s:norm})
 hi! link xmlTag                     htmlTag
 hi! link xmlEndTag                  xmlTag
 hi! link xmlTagName                 htmlTagName
+hi! link xmlAttrib                  htmlItalic
+call s:h("xmlAttrib", { "fg": s:orange, "gui": "italic", "cterm": "italic" })
+
+" Javascript
+call s:h("jsStorageClass", { "fg": s:pink })
+call s:h("jsFuncCall", { "fg": s:green })
+call s:h("jsObjectKey", { "fg": s:orange })
+call s:h("jsForAwait", { "fg": s:pink })
+call s:h("jsAsyncKeyword", { "fg": s:pink })
+call s:h("jsFuncArgs", { "fg": s:darker_blue, "gui": "italic", "cterm": "italic" })
+call s:h("jsNull", { "fg": s:light_purple })
+call s:h("jsUndefined", { "fg": s:light_purple })
 
 " Signify, git-gutter
 if g:pencil_gutter_color == 1
